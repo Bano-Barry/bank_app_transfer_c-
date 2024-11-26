@@ -28,15 +28,18 @@ int main()
             // system("pause"); 
             return 0;
         case 1:  
-            system("clear");
+            // system("clear");
             creer_compte(comptes, taille_comptes);
             cout << "Compte cree avec succes !" << endl; 
             // system("pause"); 
             break;
         case 2: 
-            system("clear");
+            // system("clear");
             liste_comptes(comptes, taille_comptes);
             // system("pause"); 
+            break;
+        case 4 : 
+            afficher_solde(comptes, taille_comptes);
             break;
         default:
             cout << "Entree invalide ! " << endl;

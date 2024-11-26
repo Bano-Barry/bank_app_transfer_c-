@@ -32,6 +32,8 @@ void menu() ;
 void creer_compte(Compte C[], int &taille); 
 void liste_comptes(Compte C[], int taille); 
 int rechercherParID(Compte C[], int taille, int idRecherche);
+void recharger_compte(Compte C[], int taille, float montantRecharge); 
+void activer_bloquer_compte(Compte C[], int taille, int id);
 void effectuer_transfert(Compte C[], int taille, Transaction T[], int &nb_transactions); 
 void afficher_solde(Compte C[], int taille); 
 void afficher_historiques(Transaction T[], int nb_transactions);

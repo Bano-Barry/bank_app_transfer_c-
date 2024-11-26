@@ -95,3 +95,17 @@ void liste_comptes(Compte C[], int taille)
             << (C[i].statut ? "Actif" : "Bloque") << endl;
     }
 }
+void afficher_solde(Compte C[], int taille)
+{
+    int id ;
+    cout << "Entrez l'identifiant du compte a consulter : " ; 
+    cin >> id ;
+    int index = rechercherParID(C, taille, id);
+    if (index != -1)
+    {
+        cout << "Solde du compte : " << setprecision(3) << C[index].solde << endl;
+    }
+    else {
+        cout << "Compte introuvable !" << endl;
+    }
+}

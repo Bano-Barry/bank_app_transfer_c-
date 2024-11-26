@@ -21,7 +21,7 @@ struct Compte
     int id ;
     string nom_titulaire; 
     float solde = 5000; 
-    int statut = 1; // 1 : compte actif par defaut &  0 : compte inactif 
+    bool statut = true; // true : compte actif par defaut &  false : compte inactif 
     struct date_creation date; 
     double plafond_solde = 10000000;
     
@@ -33,10 +33,10 @@ void menu() ;
 void creer_compte(Compte C[], int &taille); 
 void liste_comptes(Compte C[], int taille); 
 int rechercherParID(Compte C[], int taille, int idRecherche);
-void recharger_compte(Compte C[], int taille, float montantRecharge); 
+void recharger_compte(Compte C[], int taille, int id, float montantRecharge); 
 void activer_bloquer_compte(Compte C[], int taille, int id);
 void effectuer_transfert(Compte C[], int taille, Transaction T[], int &nb_transactions); 
-void afficher_solde(Compte C[], int taille); 
+void afficher_solde(Compte C[], int taille, int id); 
 void afficher_historiques(Transaction T[], int nb_transactions);
 
 #endif

@@ -40,13 +40,25 @@ int main()
             break;
         case 4 : 
             // system("cls");
-            afficher_solde(comptes, taille_comptes);
+             int idCompteAConsulter ;
+            cout << "Entrez l'identifiant du compte a consulter : " ; 
+            cin >> idCompteAConsulter ;
+            afficher_solde(comptes, taille_comptes, idCompteAConsulter);
             // system("pause");
             break;
         case 6 : 
             // system("cls");
             float montantRecharge;
-            recharger_compte(comptes, taille_comptes, montantRecharge); 
+            int idCompteARecharger ; 
+            cout << "Entrez l'identifiant du compte a recharger : " ; 
+            cin >> idCompteARecharger ; 
+            recharger_compte(comptes, taille_comptes, idCompteARecharger, montantRecharge); 
+            // system("pause");
+            break;
+        case 7 :
+            // system("cls");
+            int idCompteA_activer_bloquer ;
+            activer_bloquer_compte(comptes, taille_comptes, idCompteA_activer_bloquer);
             // system("pause");
             break;
         default:

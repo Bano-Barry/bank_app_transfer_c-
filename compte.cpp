@@ -97,25 +97,23 @@ void liste_comptes(Compte C[], int taille)
             << (C[i].statut ? "Actif" : "Bloque") << endl;
     }
 }
-void afficher_solde(Compte C[], int taille)
+void afficher_solde(Compte C[], int taille, int id)
 {
-    int id ;
-    cout << "Entrez l'identifiant du compte a consulter : " ; 
-    cin >> id ;
     int index = rechercherParID(C, taille, id);
-    if (index != -1)
+    if (index != -1 && C[index].statut == true)
     {
         cout << "Solde du compte : " << setprecision(3) << C[index].solde << endl;
+    }
+    else if (index != -1 && C[index].statut == false)
+    {
+        cout << "Votre compte est bloque, vous ne pouvez pas consulter votre solde !" << endl;
     }
     else {
         cout << "Compte introuvable !" << endl;
     }
 }
-void recharger_compte(Compte C[], int taille, float montantRecharge)
+void recharger_compte(Compte C[], int taille, int id, float montantRecharge)
 {
-    int id ; 
-    cout << "Entrez l'identifiant du compte a recharger : " ; 
-    cin >> id ; 
     int index = rechercherParID(C, taille, id); 
     if (index != -1)
     {
@@ -125,10 +123,76 @@ void recharger_compte(Compte C[], int taille, float montantRecharge)
         {
             cout << "Impossible de recharger le compte au dela de " <<  C[taille].plafond_solde << endl;
         }
+        else if(montantRecharge <= 0)
+        {
+            cout << "Montant invalide" << endl;
+        }
         else 
         {
             C[index].solde += montantRecharge;
             cout << "Compte recharge avec success !!!" << endl;
         }
+    }
+    else 
+    {
+        cout << "L'ID du compte que vous essayer de recharger est introuvable !" << endl;
+    }
+}
+void activer_bloquer_compte(Compte C[], int taille, int id) 
+{
+    cout << "Activer ou Bloquer un compte " << endl ;
+    cout << "1- Activer un compte " << endl ;
+    cout << "2- Bloquer un compte " << endl << " votre choix > " ;
+    int choix , index; 
+    cin >> choix ;
+    switch (choix)
+    {
+        case 1:
+            cout << "Entrez l'id du compte a activer : " ; 
+            cin >> id ; 
+            index = rechercherParID(C, taille, id); 
+            if(index != -1)
+            {
+                if (C[index].statut == true)
+                {
+                    cout << "Le compte est deja actif !" << endl ;
+                    return;
+                }
+                else 
+                {
+                    C[index].statut = true; 
+                    cout << "Compte active avec succes" << endl ;
+                }
+            }
+            else
+            {
+                cout << "L'ID du compte est introuvable !" << endl ;
+            }
+        break;
+        case 2: 
+            cout << "Entrez l'id du compte a bloquer : " ; 
+            cin >> id ; 
+            index = rechercherParID(C, taille, id); 
+            if(index != -1)
+            {
+                if (C[index].statut == false)
+                {
+                    cout << "Le compte est deja bloque !" << endl ;
+                    return;
+                }
+                else 
+                {
+                    C[index].statut = false; 
+                    cout << "Compte bloque avec succes !" << endl ;
+                }
+            }
+            else
+            {
+                cout << "L'ID du compte est introuvable !" << endl ;
+            }
+        break;
+        default:
+            cout << "Mauvaise entree" << endl ;
+            break;
     }
 }

@@ -38,6 +38,10 @@ int main()
             liste_comptes(comptes, taille_comptes);
             // system("pause"); 
             break;
+        case 3: 
+            // system("clear");
+            effectuer_transfert(comptes, taille_comptes, transactions, nb_transactions);
+            break;
         case 4 : 
             // system("cls");
              int idCompteAConsulter ;
@@ -45,6 +49,10 @@ int main()
             cin >> idCompteAConsulter ;
             afficher_solde(comptes, taille_comptes, idCompteAConsulter);
             // system("pause");
+            break;
+        case 5 : 
+            // system("cls");
+            afficher_historiques(transactions, nb_transactions); 
             break;
         case 6 : 
             // system("cls");
@@ -60,6 +68,10 @@ int main()
             int idCompteA_activer_bloquer ;
             activer_bloquer_compte(comptes, taille_comptes, idCompteA_activer_bloquer);
             // system("pause");
+            break;
+        case 8 : 
+            // system("cls");
+            trier_comptes_par_id(comptes, taille_comptes);
             break;
         default:
             cout << "Entree invalide ! " << endl;

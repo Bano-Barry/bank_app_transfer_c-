@@ -16,7 +16,7 @@ int main()
 
     while (!exit)
     {
-        system("clear"); 
+        // system("clear"); 
         menu();
         cout << "votre choix --> " ; 
         cin >> choix; 
@@ -25,13 +25,22 @@ int main()
         case 0: 
             system("clear");
             cout << "Merci d'avoir utilise notre application !" << endl; 
-            system("pause"); 
+            // system("pause"); 
             return 0;
         case 1:  
-
+            system("clear");
+            creer_compte(comptes, taille_comptes);
+            cout << "Compte cree avec succes !" << endl; 
+            // system("pause"); 
+            break;
+        case 2: 
+            system("clear");
+            liste_comptes(comptes, taille_comptes);
+            // system("pause"); 
+            break;
         default:
             cout << "Entree invalide ! " << endl;
-            system("pause"); 
+            // system("pause"); 
         }
     }
     

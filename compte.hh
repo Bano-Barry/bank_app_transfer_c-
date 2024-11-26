@@ -21,7 +21,7 @@ struct Compte
     int id ;
     string nom_titulaire; 
     float solde = 1000; 
-    int status = 1; // 1 : compte actif par defaut &  0 : compte inactif 
+    int statut = 1; // 1 : compte actif par defaut &  0 : compte inactif 
     struct date_creation date; 
     
 };

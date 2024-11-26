@@ -15,6 +15,8 @@ void menu()
     cout << "3- Effectuer un transfert " << endl;
     cout << "4- Afficher le solde d'un compte " << endl;
     cout << "5- Historique des transactions " << endl;
+    cout << "6- Recharger un compte " << endl;
+    cout << "7- Activer ou Bloquer un compte " << endl;
     cout << "0- Fermenr l'application" << endl;
 }
 // rechercher un element par son identifiant
@@ -107,5 +109,26 @@ void afficher_solde(Compte C[], int taille)
     }
     else {
         cout << "Compte introuvable !" << endl;
+    }
+}
+void recharger_compte(Compte C[], int taille, float montantRecharge)
+{
+    int id ; 
+    cout << "Entrez l'identifiant du compte a recharger : " ; 
+    cin >> id ; 
+    int index = rechercherParID(C, taille, id); 
+    if (index != -1)
+    {
+        cout << "Entrez le montant a recharger : " ;
+        cin >> montantRecharge; 
+        if (montantRecharge > C[index].plafond_solde)
+        {
+            cout << "Impossible de recharger le compte au dela de " <<  C[taille].plafond_solde << endl;
+        }
+        else 
+        {
+            C[index].solde += montantRecharge;
+            cout << "Compte recharge avec success !!!" << endl;
+        }
     }
 }

@@ -20,9 +20,10 @@ struct Compte
 {
     int id ;
     string nom_titulaire; 
-    float solde = 1000; 
+    float solde = 5000; 
     int statut = 1; // 1 : compte actif par defaut &  0 : compte inactif 
     struct date_creation date; 
+    double plafond_solde = 10000000;
     
 };
 const int MAX_COMPTES = 1000; 

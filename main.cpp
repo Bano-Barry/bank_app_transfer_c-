@@ -39,7 +39,15 @@ int main()
             // system("pause"); 
             break;
         case 4 : 
+            // system("cls");
             afficher_solde(comptes, taille_comptes);
+            // system("pause");
+            break;
+        case 6 : 
+            // system("cls");
+            float montantRecharge;
+            recharger_compte(comptes, taille_comptes, montantRecharge); 
+            // system("pause");
             break;
         default:
             cout << "Entree invalide ! " << endl;
